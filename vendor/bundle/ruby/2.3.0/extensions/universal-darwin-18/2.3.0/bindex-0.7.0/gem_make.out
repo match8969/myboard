@@ -1,0 +1,15 @@
+current directory: /Users/match/Desktop/GitHub/myboard/vendor/bundle/ruby/2.3.0/gems/bindex-0.7.0/ext/skiptrace
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20190523-11317-poob1u.rb extconf.rb
+creating Makefile
+
+current directory: /Users/match/Desktop/GitHub/myboard/vendor/bundle/ruby/2.3.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/match/Desktop/GitHub/myboard/vendor/bundle/ruby/2.3.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/cruby.bundle
+
+current directory: /Users/match/Desktop/GitHub/myboard/vendor/bundle/ruby/2.3.0/gems/bindex-0.7.0/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20190523-11317-1uk9h46/skiptrace
