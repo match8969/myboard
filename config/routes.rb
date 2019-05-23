@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  # Root
+  root :to => "admin/instagram_accounts#index"
+
   # ユーザー
   devise_for :users, controllers: {
     registrations: 'users/registrations',

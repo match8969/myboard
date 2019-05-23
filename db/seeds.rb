@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create!(email: "administer@example.com",
+    password: "administer",
+    confirmed_at: Time.zone.now-1.month
+   )
+
+
+10.times do |n|
+    User.create!(email: "example_#{n+1}@example.com",
+                 password: "password",
+                 confirmed_at: Time.zone.now-1.month
+                )
+end
+
+10.times do |n|
+    InstagramAccount.create!(account_name: "instagram_account_name_#{n}",
+                             user_id: User.find(n+1).id)
+end
+
