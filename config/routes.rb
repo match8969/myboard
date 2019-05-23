@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  # ユーザー
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords',
@@ -10,4 +11,14 @@ Rails.application.routes.draw do
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
+  namespace :admin do
+    resources :instagram_accounts
+  end
+
+  # メール確認
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
 end
