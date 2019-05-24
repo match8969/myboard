@@ -1,4 +1,4 @@
-class InstagramContentsController < ApplicationController
+class Admin::InstagramContentsController < ApplicationController
   # ユーザーのログインを確認
   before_action :authenticate_user!
   before_action :set_instagram_content, only: [:show, :edit, :update, :destroy]
@@ -25,6 +25,7 @@ class InstagramContentsController < ApplicationController
 
   
   def create
+
   end
 
   def destroy
@@ -38,6 +39,6 @@ class InstagramContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instagram_content_params
-      params.fetch(:instagram_content, {})
+      params.require(:instagram_content).permit(:instagram_account_id, {images: []})
     end
 end

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Instagram Contents</h1>
+<%= link_to 'New Instagram Content', new_admin_instagram_content_path %>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>content_name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @instagram_contents.each do |instagram_content| %>
+          <tr>
+            <td><%= instagram_content.account_name %></td>
+            <td><%= link_to 'Show', [:admin, instagram_content] %></td>
+            <td><%= link_to 'Edit', edit_admin_instagram_content_path(instagram_content) %></td>
+            <td><%= link_to 'Destroy', [:admin, instagram_content], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<br>
+
+

@@ -3,11 +3,8 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'home/index'
     resources :instagram_accounts
+    resources :instagram_contents
   end
-  get 'instagram_contents/create'
-  get 'instagram_contents/destroy'
-  
-  resources :instagram_contents
 
   # Root
   root :to => "admin/home#index"
