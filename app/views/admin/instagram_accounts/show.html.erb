@@ -7,9 +7,11 @@
   </p>
   <p>
     <strong>Picture:</strong>
-    <%= @instagram_account.instagram_contents.url %>
+    <%= @instagram_account.instagram_contents.url unless @instagram_account.instagram_contents.blank? %>
   </p>
 </div>
 
 <%= link_to 'Edit', edit_admin_instagram_account_path(@instagram_account) %> |
 <%= link_to 'Back', admin_instagram_accounts_path %>
+
+<%= link_to 'Update', edit_admin_instagram_accounts_path %>

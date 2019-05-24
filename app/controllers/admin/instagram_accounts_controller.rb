@@ -39,8 +39,6 @@ class Admin::InstagramAccountsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /instagram_accounts/1
-  # PATCH/PUT /instagram_accounts/1.json
   def update
     respond_to do |format|
       if @instagram_account.update(instagram_account_params)

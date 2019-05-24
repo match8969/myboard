@@ -93,3 +93,6 @@ gem 'omniauth'
 # 画像
 gem 'carrierwave'
 gem 'mini_magick'
+
+# 複数フォーム
+gem "cocoon"
