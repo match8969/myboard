@@ -10,6 +10,10 @@
   </head>
 
   <body>
+  <h1><%= link_to 'My board', root_path %></h1>
+    <header>
+      <%= render 'layouts/header' %>
+    </header>
     <%= yield %>
   </body>
 </html>

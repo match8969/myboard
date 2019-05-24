@@ -1,25 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Instagram Accounts</h1>
+<%= link_to 'New Instagram Account', new_admin_instagram_account_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>account_name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @instagram_accounts.each do |instagram_account| %>
-      <tr>
-        <td><%= link_to 'Show', [:admin, instagram_account] %></td>
-        <td><%= link_to 'Edit', edit_admin_instagram_account_path(instagram_account) %></td>
-        <td><%= link_to 'Destroy', [:admin, instagram_account], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @instagram_accounts.each do |instagram_account| %>
+          <tr>
+            <td><%= instagram_account.account_name %></td>
+            <td><%= link_to 'Show', [:admin, instagram_account] %></td>
+            <td><%= link_to 'Edit', edit_admin_instagram_account_path(instagram_account) %></td>
+            <td><%= link_to 'Destroy', [:admin, instagram_account], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
 <br>
 
-<%= link_to 'New Instagram Account', new_admin_instagram_account_path %>
+

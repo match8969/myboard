@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_instagram_account_path(@instagram_account) %> |
+<div class="container">
+  <p>
+  <strong>Id:</strong>
+  <%= @instagram_account.account_name %>
+</p>
+</div>
+<%= link_to 'Edit', edit_admin_instagram_account_path(@instagram_account) %> |
 <%= link_to 'Back', admin_instagram_accounts_path %>
