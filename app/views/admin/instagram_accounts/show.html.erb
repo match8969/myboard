@@ -2,9 +2,14 @@
 
 <div class="container">
   <p>
-  <strong>Id:</strong>
-  <%= @instagram_account.account_name %>
-</p>
+    <strong>Id:</strong>
+    <%= @instagram_account.account_name %>
+  </p>
+  <p>
+    <strong>Picture:</strong>
+    <%= @instagram_account.instagram_contents.url %>
+  </p>
 </div>
+
 <%= link_to 'Edit', edit_admin_instagram_account_path(@instagram_account) %> |
 <%= link_to 'Back', admin_instagram_accounts_path %>

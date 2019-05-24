@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <p>
+    <strong>Id:</strong>
+    <%= @instagram_content.id %>
+  </p>
+  <p>
+    <strong>Picture:</strong>
+    <%= @instagram_content.url %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_admin_instagram_content_path(@instagram_content) %> |
+<%= link_to 'Back', admin_instagram_contents_path %>

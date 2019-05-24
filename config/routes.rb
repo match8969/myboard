@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   
+  namespace :admin do
+    get 'home/index'
+    resources :instagram_accounts
+  end
+  get 'instagram_contents/create'
+  get 'instagram_contents/destroy'
+  
+  resources :instagram_contents
+
   # Root
-  root :to => "admin/instagram_accounts#index"
+  root :to => "admin/home#index"
 
   # ユーザー
   devise_for :users, controllers: {
@@ -15,9 +24,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  namespace :admin do
-    resources :instagram_accounts
-  end
 
   # メール確認
   if Rails.env.development?

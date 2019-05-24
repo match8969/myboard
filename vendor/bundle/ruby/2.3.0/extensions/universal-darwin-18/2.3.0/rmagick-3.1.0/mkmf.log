@@ -1,0 +1,13 @@
+find_executable: checking for brew... -------------------- yes
+
+--------------------
+
+find_executable: checking for xcrun... -------------------- yes
+
+--------------------
+
+find_executable: checking for pkg-config... -------------------- no
+
+--------------------
+
+ERROR: Can't install RMagick 3.1.0. Can't find pkg-config in /usr/local/bin:/Users/match/.rbenv/bin:/Users/match/.rbenv/bin:/Users/match/.pyenv/shims:/Users/match/.pyenv/shims:/Users/match/.pyenv/bin:/Users/match/anaconda3/bin:/anaconda3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/local/bin

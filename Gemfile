@@ -89,3 +89,7 @@ gem 'annotate'
 # ユーザー登録
 gem 'devise'
 gem 'omniauth'
+
+# 画像
+gem 'carrierwave'
+gem 'mini_magick'
