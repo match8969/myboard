@@ -27,5 +27,7 @@ end
 
 InstagramAccount.create!(account_name: "ytp49",
                          user_id: 1)
+InstagramAccount.create!(account_name: "aragakiyui_fanspage",
+                         user_id: 1)
 
 
