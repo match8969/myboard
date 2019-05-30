@@ -7,11 +7,18 @@
   </p>
   <p>
     <strong>Picture:</strong>
-    <%= @instagram_account.instagram_contents.url unless @instagram_account.instagram_contents.blank? %>
+    <% if @instagram_account.instagram_contents.count > 0 %>
+      <% @instagram_account.instagram_contents.each do |instagram_content| %>
+      <p>url=<%= instagram_content.images.map { |image| image.url} %></p>
+      <% end %>
+    <% end%>
   </p>
 </div>
 
 <%= link_to 'Edit', edit_admin_instagram_account_path(@instagram_account) %> |
 <%= link_to 'Back', admin_instagram_accounts_path %>
 
-<%= link_to 'Update', edit_admin_instagram_accounts_path %>
+<br/>
+
+<%=  "@instagram_account.id=#{@instagram_account.id}" %>
+<%= link_to 'Update', admin_instagram_contents_path(params: {instagram_account_id: @instagram_account.id}), method: :post, remote: true %>

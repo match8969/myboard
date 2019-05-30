@@ -25,7 +25,11 @@ class Admin::InstagramContentsController < ApplicationController
 
   
   def create
+    instagram_content = InstagramContent.new(instagram_account_id: params[:instagram_account_id])
+    #instagram_content.images =
 
+    instagram_content.save
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy

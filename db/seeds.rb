@@ -25,3 +25,7 @@ end
                              user_id: User.find(n+1).id)
 end
 
+InstagramAccount.create!(account_name: "ytp49",
+                         user_id: 1)
+
+
