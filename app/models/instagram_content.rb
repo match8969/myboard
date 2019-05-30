@@ -14,9 +14,7 @@ class InstagramContent < ApplicationRecord
   #serialize :avatars, JSON # If you use SQLite, add this line.
   belongs_to :instagram_account
 
-
   def fetch_images
-    puts "---- #fetch_images -----"
 
     # URLにアクセスするためのライブラリの読み込み
     require 'open-uri'
@@ -25,13 +23,10 @@ class InstagramContent < ApplicationRecord
     # html解析の読み込み
     require 'uri'
 
-    puts "<0>"
-
     output_dir = "/Users/match/Desktop/GitHub/myboard/app/assets/images"
     output_file_pref = "example"
     reg_exp_inkphy_image = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
 
-    # TODO:
     url = "https://inkphy.com/user/"+self.instagram_account.account_name
 
     # Htmlの取得
@@ -72,7 +67,7 @@ class InstagramContent < ApplicationRecord
         output_image_local_paths.push file_name
       end
     end
-    puts "<9>"
+
     return output_image_local_paths.first
   end
 end

@@ -23,25 +23,16 @@ class Admin::InstagramContentsController < ApplicationController
   def edit
   end
 
-  
   def create
     instagram_content = InstagramContent.new(instagram_account_id: params[:instagram_account_id])
-    puts "----- s -----"
-
-
-    #instagram_content.images = instagram_content.fetch_images
-
-    # assetsに格納したため、この処理
+    # assetsに格納のため、ファイル名のみを抽出
     instagram_content.images = File.basename(instagram_content.fetch_images)
     instagram_content.save
-
-    puts "----- e -----"
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
