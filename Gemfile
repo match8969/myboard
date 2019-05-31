@@ -41,6 +41,9 @@ gem 'bootstrap', '~> 4.3.1'
 # JQuery
 gem 'jquery-rails'
 
+# AWS
+gem 'fog-aws'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
