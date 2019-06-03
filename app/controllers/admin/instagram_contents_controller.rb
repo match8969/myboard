@@ -48,6 +48,8 @@ class Admin::InstagramContentsController < ApplicationController
     # インスタンスの生成
     instagram_content = InstagramContent.new(instagram_account_id: params[:instagram_account_id])
     paths = instagram_content.fetch_images
+    instagram_content.images = paths
+    instagram_content.save
 
     if Rails.env.production?
       # access_key_id = "#{ENV['S3_ACCESS_KEY']}"
@@ -60,7 +62,7 @@ class Admin::InstagramContentsController < ApplicationController
       region = ENV['S3_REGION']
       bucket = ENV['S3_BUCKET'] # S3バケット名
 
-      instagram_content.images = paths
+
 
       key = "#{File.basename(paths)}" #S3のファイル名
       client = Aws::S3::Client.new(
@@ -70,12 +72,10 @@ class Admin::InstagramContentsController < ApplicationController
       )
       upload_file = paths
       client.put_object(bucket: bucket, key: key, body: File.open(upload_file))
-    else
-      instagram_content.images = paths
     end
 
 
-    instagram_content.save
+
     redirect_back(fallback_location: root_path)
     #
     #
