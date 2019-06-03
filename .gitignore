@@ -33,3 +33,7 @@
 
 # Ignore dotenv
 .env
+
+# Ignore
+/public/cache
+/public/uploads

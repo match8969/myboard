@@ -61,10 +61,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   # 保存形式をJPGにする
   process :convert => 'jpg'
 
-  # ファイル名を現在日時にする
   def filename
-    time = Time.now
-    name = time.strftime('%Y%m%d%H%M%S') + '.jpg'
+    name = Time.now.strftime('%Y%m%d%H%M') + "_#{original_filename}"
     name.downcase
   end
 
