@@ -12,8 +12,9 @@
   <% end %>
 
    <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
+     <%= form.label :images %>
+     <%= form.file_field :images, multiple: true %>
+     <%= form.hidden_field :avatar_cache %>
   </div>
 
   <div class="actions">

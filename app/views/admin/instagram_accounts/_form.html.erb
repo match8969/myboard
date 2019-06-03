@@ -11,6 +11,17 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :account_name %>
+    <%= form.text_field :account_name %>
+  </div>
+
+  <div>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :instagram_account_image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

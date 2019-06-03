@@ -26,12 +26,12 @@ class Admin::InstagramAccountsController < ApplicationController
   # POST /instagram_accounts
   # POST /instagram_accounts.json
   def create
-    @instagram_account = InstagramAccount.new(instagram_account_params)
+    @instagram_account = current_user.instagram_accounts.new(instagram_account_params)
 
     respond_to do |format|
       if @instagram_account.save
-        format.html { redirect_to @instagram_account, notice: 'Instagram account was successfully created.' }
-        format.json { render :show, status: :created, location: @instagram_account }
+        format.html { redirect_to [:admin, @instagram_account], notice: 'Instagram account was successfully created.' }
+        format.json { render :show, status: :created, location: [:admin, @instagram_account] }
       else
         format.html { render :new }
         format.json { render json: @instagram_account.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class Admin::InstagramAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instagram_account_params
-      params.fetch(:instagram_account, {})
+      params.require(:instagram_account).permit(:account_name, :image, :image_cache, :remove_image)
     end
 end
