@@ -78,7 +78,7 @@ class Admin::InstagramContentsController < ApplicationController
       #puts "--- client.get_object = #{client.get_object(:bucket => bucket, :key => key).body.read} ---"
       instagram_content.images = client.get_object(:bucket => bucket, :key => key).body.read
     else
-      instagram_content.images = paths
+      instagram_content.images = File.basename(paths)
     end
 
     instagram_content.save
