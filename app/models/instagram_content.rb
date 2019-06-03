@@ -23,7 +23,13 @@ class InstagramContent < ApplicationRecord
     # html解析の読み込み
     require 'uri'
 
-    output_dir = "/Users/match/Desktop/GitHub/myboard/app/assets/images"
+    puts "-----"
+    puts "#{Dir.pwd}"
+
+    output_dir = "#{Dir.pwd}/app/assets/images"
+    #output_dir = "/Users/match/Desktop/GitHub/myboard/app/assets/images"
+
+
     output_file_pref = "example"
     reg_exp_inkphy_image = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
 

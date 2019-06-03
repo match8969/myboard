@@ -37,3 +37,6 @@
 # Ignore
 /public/cache
 /public/uploads
+
+# Asset
+/app/assets/images/

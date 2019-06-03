@@ -111,3 +111,6 @@ gem 'mini_magick'
 
 # 複数フォーム
 gem "cocoon"
+
+# AWS
+gem 'aws-sdk'
