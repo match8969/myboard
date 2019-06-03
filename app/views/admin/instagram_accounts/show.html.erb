@@ -15,7 +15,7 @@
     <strong>Picture:</strong>
     <% if @instagram_account.instagram_contents.count > 0 %>
       <% @instagram_account.instagram_contents.each do |instagram_content| %>
-        <%= image_tag "#{instagram_content.images}" if instagram_content.present? %>
+        <%= image_tag instagram_content.images if instagram_content.present? %>
       <% end %>
     <% end%>
   </div>

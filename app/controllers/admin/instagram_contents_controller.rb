@@ -50,10 +50,15 @@ class Admin::InstagramContentsController < ApplicationController
     paths = instagram_content.fetch_images
 
     if Rails.env.production?
-      access_key_id = "#{ENV['S3_ACCESS_KEY']}"
-      secret_access_key = "#{ENV['S3_SECRET_KEY']}"
-      region = "#{ENV['S3_REGION']}"
-      bucket = "#{ENV['S3_BUCKET']}" # S3バケット名
+      # access_key_id = "#{ENV['S3_ACCESS_KEY']}"
+      # secret_access_key = "#{ENV['S3_SECRET_KEY']}"
+      # region = "#{ENV['S3_REGION']}"
+      # bucket = "#{ENV['S3_BUCKET']}" # S3バケット名
+
+      access_key_id = ENV['S3_ACCESS_KEY']
+      secret_access_key = ENV['S3_SECRET_KEY']
+      region = ENV['S3_REGION']
+      bucket = ENV['S3_BUCKET'] # S3バケット名
 
       instagram_content.images = paths
 
@@ -65,9 +70,11 @@ class Admin::InstagramContentsController < ApplicationController
       )
       upload_file = paths
       client.put_object(bucket: bucket, key: key, body: File.open(upload_file))
+    else
+      instagram_content.images = paths
     end
 
-    instagram_content.images = paths
+
     instagram_content.save
     redirect_back(fallback_location: root_path)
     #
