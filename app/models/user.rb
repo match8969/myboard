@@ -25,6 +25,8 @@
 #
 
 class User < ApplicationRecord
+  mount_uploader :image, ImageUploader
+  serialize :avatars, JSON # If you use SQLite, add this line.
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
