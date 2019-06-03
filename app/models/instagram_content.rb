@@ -26,7 +26,12 @@ class InstagramContent < ApplicationRecord
     puts "-----"
     puts "#{Dir.pwd}"
 
-    output_dir = "#{Dir.pwd}/app/assets/images"
+    if Rails.env.production?
+      output_dir = "#{Dir.pwd}/assets/images"
+    else
+      output_dir = "#{Dir.pwd}/app/assets/images"
+    end
+
     #output_dir = "/Users/match/Desktop/GitHub/myboard/app/assets/images"
 
 
