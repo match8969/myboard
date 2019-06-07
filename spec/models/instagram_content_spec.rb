@@ -6,7 +6,7 @@
 #  instagram_account_id :integer
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  images               :string
+#  image                :string
 #
 
 require 'rails_helper'

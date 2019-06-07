@@ -6,7 +6,6 @@ class InstagramContentImageService
     @instagram_account_name = instagram_account_name
   end
 
-
   def fetch_image_paths
     # FIXME: raise and return if no user instagram account exists for the instance name.
     url = "https://inkphy.com/user/#{@instagram_account_name}"

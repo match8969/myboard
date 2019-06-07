@@ -28,6 +28,9 @@ class Admin::InstagramAccountsController < ApplicationController
   def create
     @instagram_account = current_user.instagram_accounts.new(instagram_account_params)
 
+    # アバターの取得
+    @instagram_account.image = InstagramAccountImageService.new(@instagram_account.account_name).fetch_avatar_path
+
     # コンテンツの作成
     image_paths = InstagramContentImageService.new(@instagram_account.account_name).fetch_image_paths
     image_paths.each do |image_path|
@@ -76,6 +79,6 @@ class Admin::InstagramAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instagram_account_params
-      params.require(:instagram_account).permit(:account_name, :image, :image_cache, :remove_image)
+      params.require(:instagram_account).permit(:account_name)
     end
 end
