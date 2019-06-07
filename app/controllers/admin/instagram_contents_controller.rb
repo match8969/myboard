@@ -31,6 +31,7 @@ class Admin::InstagramContentsController < ApplicationController
     # instagram_content.save
     # redirect_back(fallback_location: root_path)
 
+
     # test
     # instagram_content = InstagramContent.new(instagram_account_id: params[:instagram_account_id])
 
@@ -46,9 +47,16 @@ class Admin::InstagramContentsController < ApplicationController
     # obj.upload_file('my_file')
 
     # インスタンスの生成
-    instagram_content = InstagramContent.new(instagram_account_id: params[:instagram_account_id])
-    paths = instagram_content.fetch_images
+    # instagram_content = InstagramContent.new(instagram_account_id: params[:instagram_account_id])
+    # paths = instagram_content.fetch_images
 
+    # 6/7 creation
+    instagram_account = InstagramAccount.find(params[:instagram_account_id])
+    image_paths = InstagramContentImageService.new(instagram_account.account_name).fetch_image_paths
+    image_paths.each do |image_path|
+      instagram_content = instagram_account.instagram_contents.new(images: image_path)
+      instagram_content.save
+    end
 
     if Rails.env.production?
       # access_key_id = "#{ENV['S3_ACCESS_KEY']}"
@@ -74,14 +82,14 @@ class Admin::InstagramContentsController < ApplicationController
     end
 
 
-    if Rails.env.production?
-      #puts "--- client.get_object = #{client.get_object(:bucket => bucket, :key => key).body.read} ---"
-      instagram_content.images = client.get_object(:bucket => bucket, :key => key).body.read
-    else
-      instagram_content.images = File.basename(paths)
-    end
+    # if Rails.env.production?
+    #   #puts "--- client.get_object = #{client.get_object(:bucket => bucket, :key => key).body.read} ---"
+    #   instagram_content.images = client.get_object(:bucket => bucket, :key => key).body.read
+    # else
+    #   instagram_content.images = File.basename(paths)
+    # end
 
-    instagram_content.save
+    # instagram_content.save
 
     redirect_back(fallback_location: root_path)
     #
