@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_032316) do
+ActiveRecord::Schema.define(version: 2019_06_07_075151) do
 
   create_table "instagram_accounts", force: :cascade do |t|
     t.string "account_name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_032316) do
     t.integer "instagram_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "images"
+    t.string "image"
     t.index ["instagram_account_id"], name: "index_instagram_contents_on_instagram_account_id"
   end
 
