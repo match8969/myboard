@@ -8,8 +8,6 @@ class InstagramAccountImageService
 
   def fetch_avatar_path
     url = "https://inkphy.com/user/#{@instagram_account_name}"
-    # reg_exp_inkphy_image = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
-    # reg_exp_inkphy_image = '//div[@class="profile"]//div[@class="userinfo text-center"]//div[@class="detail"]//img[@class="avatar"]//@source'
     reg_exp_inkphy_image = '//div[@class="profile"]//div[@class="userinfo text-center"]//div[@class="detail"]//img[@class="avatar"]//@src'
 
     # Htmlの取得
