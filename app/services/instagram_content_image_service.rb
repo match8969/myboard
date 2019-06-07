@@ -8,7 +8,6 @@ class InstagramContentImageService
 
 
   def fetch_image_paths
-
     url = "https://inkphy.com/user/#{@instagram_account_name}"
     reg_exp_inkphy_image = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
 
@@ -18,12 +17,8 @@ class InstagramContentImageService
       charset = f.charset # 文字種別を取得
       f.read # htmlを読み込んで変数htmlに渡す
     end
-
     # htmlをパース(解析)してオブジェクトを生成
     doc = Nokogiri::HTML.parse(html, nil, charset)
-
-    # タイトルを表示
-    p doc.title
 
     # 画像保管先のURL格納用
     img_paths = []
@@ -33,9 +28,5 @@ class InstagramContentImageService
       img_path = URI.extract(node.to_s.to_s.gsub!(/\);/, ''), ["https"])
       img_paths.push(img_path[0])
     end
-
-    # test
-    img_paths.each { |img_path| puts "#{img_path}"}
-    img_paths
   end
 end
