@@ -27,11 +27,8 @@ class InstagramContentImageService
     # 画像保管先のURL格納処理
     doc.xpath(reg_exp_inkphy_image).each do |node|
       img_path = URI.extract(node.to_s.to_s.gsub!(/\);/, ''), ["https"])
-      img_paths.push(img_path[0])
+      img_paths.unshift(img_path[0]) # 古いインスタ写真を先頭にすることで、モデルのidの新しさと写真の新しさを取得時に一致させる。
     end
-
-    # test
-    img_paths.each { |img_path|  puts "img_paht=#{img_path}"}
     img_paths
   end
 end
