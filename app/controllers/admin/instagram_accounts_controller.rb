@@ -28,6 +28,13 @@ class Admin::InstagramAccountsController < ApplicationController
   def create
     @instagram_account = current_user.instagram_accounts.new(instagram_account_params)
 
+    # コンテンツの作成
+    image_paths = InstagramContentImageService.new(@instagram_account.account_name).fetch_image_paths
+    image_paths.each do |image_path|
+      instagram_content = @instagram_account.instagram_contents.new(image: image_path)
+      instagram_content.save
+    end
+
     respond_to do |format|
       if @instagram_account.save
         format.html { redirect_to [:admin, @instagram_account], notice: 'Instagram account was successfully created.' }

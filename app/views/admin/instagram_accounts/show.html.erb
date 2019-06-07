@@ -17,7 +17,7 @@
       <% @instagram_account.instagram_contents.order(id: "DESC").limit(12).each do |instagram_content| %>
         <% if instagram_content.present? %>
           <div class="col-md-4">
-            <%= image_tag "#{instagram_content.images}", :size => "300x300" %>
+            <%= image_tag "#{instagram_content.image}", :size => "300x300" %>
           </div>
         <% end %>
       <% end %>

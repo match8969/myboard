@@ -27,7 +27,7 @@ class Admin::InstagramContentsController < ApplicationController
     instagram_account = InstagramAccount.find(params[:instagram_account_id])
     image_paths = InstagramContentImageService.new(instagram_account.account_name).fetch_image_paths
     image_paths.each do |image_path|
-      instagram_content = instagram_account.instagram_contents.new(images: image_path)
+      instagram_content = instagram_account.instagram_contents.new(image: image_path)
       instagram_content.save
     end
     redirect_back(fallback_location: root_path)

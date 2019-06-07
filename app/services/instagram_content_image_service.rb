@@ -8,6 +8,7 @@ class InstagramContentImageService
 
 
   def fetch_image_paths
+    # FIXME: raise and return if no user instagram account exists for the instance name.
     url = "https://inkphy.com/user/#{@instagram_account_name}"
     reg_exp_inkphy_image = '//div[@class="item"]//div[@class="media"]//a[@class="mask"]//@style'
 
@@ -28,5 +29,9 @@ class InstagramContentImageService
       img_path = URI.extract(node.to_s.to_s.gsub!(/\);/, ''), ["https"])
       img_paths.push(img_path[0])
     end
+
+    # test
+    img_paths.each { |img_path|  puts "img_paht=#{img_path}"}
+    img_paths
   end
 end
