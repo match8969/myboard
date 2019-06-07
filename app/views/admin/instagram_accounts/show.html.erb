@@ -8,7 +8,7 @@
 
   <p>
     <strong>Image:</strong>
-    <%= image_tag @instagram_account.image.thumb.url if @instagram_account.image? %>
+    <%= image_tag @instagram_account.image, :size => "100x100" if @instagram_account.image? %>
   </p>
 
     <strong>Picture:</strong>
