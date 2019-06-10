@@ -12,31 +12,25 @@ class Admin::InstagramAccountsController < ApplicationController
   # GET /instagram_accounts/1
   # GET /instagram_accounts/1.json
   def show
-
-    # TODO: accountのavatarのアップデート
-
-    # TODO: contentsのアップデート(あとでserviceに任せよう,,,)
-    # Notification: cacheなので即時反映のテストはできない
-
     # newからのリダイレクトでは更新は行わない
-    return @instagram_account if @instagram_account.updated_at > Time.zone.now - 10.second # OK! new の時はwithin 10 secやった
+    return @instagram_account if @instagram_account.updated_at > Time.zone.now - 10.second
 
+    # アバターのアップデート
+    new_avatar_path = InstagramAccountImageService.new(@instagram_account.account_name).fetch_avatar_path
+    @instagram_account.update(image: new_avatar_path) unless @instagram_account.image == new_avatar_path
+
+    # 投稿画像のアップデート
     new_image_paths = InstagramContentImageService.new(@instagram_account.account_name).fetch_image_paths
     current_image_paths = @instagram_account.instagram_contents.pluck(:image)
-
-    # 集合の差集合を取得すべき新しい画像として認知
-    diff_image_paths = new_image_paths - current_image_paths
-
+    diff_image_paths = new_image_paths - current_image_paths # 集合の差集合を取得すべき新しい画像として認知
     # 既存の画像のみの場合
     return @instagram_account if diff_image_paths.blank?
-
     # 新しい画像がある場合
     diff_image_paths.each do |image_path|
       instagram_content = @instagram_account.instagram_contents.new(image: image_path)
       instagram_content.save
     end
     @instagram_account
-
   end
 
   # GET /instagram_accounts/new
