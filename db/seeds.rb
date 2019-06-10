@@ -20,14 +20,13 @@ User.create!(email: "administer@example.com",
                 )
 end
 
-10.times do |n|
-    InstagramAccount.create!(account_name: "instagram_account_name_#{n}",
-                             user_id: User.find(n+1).id)
-end
+InstagramAccount.create!(account_name: "ytp49", user_id: 1)
+InstagramAccount.create!(account_name: "aragakiyui_fanspage", user_id: 1)
+InstagramAccount.create!(account_name: "mariekondo", user_id: 1)
+InstagramAccount.create!(account_name: "watanabenaomi703", user_id: 1)
+InstagramAccount.create!(account_name: "ariyoshihiroiki", user_id: 1)
+InstagramAccount.create!(account_name: "rolaofficial", user_id: 1)
+InstagramAccount.create!(account_name: "match8969", user_id: 1)
 
-InstagramAccount.create!(account_name: "ytp49",
-                         user_id: 1)
-InstagramAccount.create!(account_name: "aragakiyui_fanspage",
-                         user_id: 1)
 
 
