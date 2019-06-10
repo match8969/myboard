@@ -12,6 +12,8 @@
 
 FactoryBot.define do
   factory :instagram_account do
-    account_name { "MyString" }
+    account_name { 'account name' }
+    image { 'image/account_image.jpg' }
+    association :user, factory: :user
   end
 end

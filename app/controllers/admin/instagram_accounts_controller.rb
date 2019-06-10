@@ -13,11 +13,11 @@ class Admin::InstagramAccountsController < ApplicationController
   # GET /instagram_accounts/1.json
   def show
     # newからのリダイレクトでは更新は行わない
-    return @instagram_account if @instagram_account.updated_at > Time.zone.now - 10.second
+    return @instagram_account if @instagram_account.is_updated_within?(10)
 
     # アバターのアップデート
     new_avatar_path = InstagramAccountImageService.new(@instagram_account.account_name).fetch_avatar_path
-    @instagram_account.update(image: new_avatar_path) unless @instagram_account.image == new_avatar_path
+    @instagram_account.update(image: new_avatar_path) unless @instagram_account.has_same_image_path?(new_avatar_path)
 
     # 投稿画像のアップデート
     new_image_paths = InstagramContentImageService.new(@instagram_account.account_name).fetch_image_paths
