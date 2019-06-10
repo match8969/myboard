@@ -6,7 +6,8 @@ class Admin::InstagramAccountsController < ApplicationController
   # GET /instagram_accounts
   # GET /instagram_accounts.json
   def index
-    @instagram_accounts = InstagramAccount.joins(:instagram_contents).includes(:instagram_contents).order("instagram_contents.updated_at")
+    @instagram_accounts = InstagramAccount.all
+    # @instagram_accounts = InstagramAccount.joins(:instagram_contents).includes(:instagram_contents).order("instagram_contents.updated_at")
   end
 
   # GET /instagram_accounts/1
