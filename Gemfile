@@ -117,3 +117,7 @@ gem "cocoon"
 
 # AWS
 gem 'aws-sdk'
+
+
+# フィード
+gem 'feedjira'
