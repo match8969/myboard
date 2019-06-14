@@ -63,6 +63,23 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "myboard_#{Rails.env}"
 
+
+  # Action Mailer
+  config.action_mailer.default_url_options = { :host => 'https://serene-inlet-94224.herokuapp.com/'}
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      # TODO:
+      # :user_name => "SendGridのアカウント名",
+      # 　　　　　　　　:password => "SendGridのパスワード",
+      # :domain => "heroku.com",
+      # :address => "smtp.sendgrid.net",
+      # :port => 587,
+      # :authentication => :plain,
+      # :enable_starttls_auto => true
+  }
+
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
