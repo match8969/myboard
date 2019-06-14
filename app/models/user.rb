@@ -35,5 +35,6 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable, :omniauthable
 
 
+  has_many :talents
   has_many :instagram_accounts
 end
