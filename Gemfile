@@ -121,3 +121,6 @@ gem 'aws-sdk'
 
 # フィード
 gem 'feedjira'
+
+# cron
+gem 'whenever', require: false
