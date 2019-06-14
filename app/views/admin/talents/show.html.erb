@@ -1,23 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <p>
-    <strong>Id:</strong>
-    <%= @talent.instagram_account.account_name %>
-  </p>
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag @talent.instagram_account.image, :size => "100x100" if @talent.instagram_account.image? %>
+    </div>
+  </div>
+  <%= @talent.instagram_account.account_name %>
+  <%= link_to 'Edit', edit_admin_talent_path(@talent) %>
+  <br/><br/>
 
-  <p>
-    <strong>Image:</strong>
-    <%= image_tag @talent.instagram_account.image, :size => "100x100" if @talent.instagram_account.image? %>
-  </p>
-
-  <strong>Picture:</strong>
   <div class="row">
     <% if @talent.instagram_account.instagram_contents.count > 0 %>
       <% @talent.instagram_account.instagram_contents.order(id: "DESC").limit(3).each do |instagram_content| %>
         <% if instagram_content.present? %>
           <div class="col-md-4">
-            <%= image_tag "#{instagram_content.image}", :size => "300x300" %>
+            <%= image_tag "#{instagram_content.image}", :size => "250x250" %>
           </div>
         <% end %>
       <% end %>
@@ -26,5 +24,4 @@
 </div>
 
 
-<%= link_to 'Edit', edit_admin_talent_path(@talent) %> |
-<%= link_to 'Back', admin_talents_path %>
+
