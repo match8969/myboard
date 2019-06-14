@@ -11,4 +11,5 @@
 
 class Talent < ApplicationRecord
   belongs_to :user
+  has_one :instagram_account
 end

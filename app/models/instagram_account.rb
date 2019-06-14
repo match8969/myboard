@@ -6,13 +6,12 @@
 #  account_name :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
-#  user_id      :integer
 #  image        :string
 #  talent_id    :integer
 #
 
 class InstagramAccount < ApplicationRecord
-  belongs_to :user
+  belongs_to :talent, autosave: true
   has_many :instagram_contents, inverse_of: :instagram_account, dependent: :destroy
 
   def is_updated_within?(sec)

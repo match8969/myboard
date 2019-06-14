@@ -11,6 +11,8 @@
       Login User:<%= current_user.email %>
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav">
+          <li><%= link_to 'Talents ', admin_talents_path, class: "nav-link" %></li>
+          <li><%= link_to 'Add Talents ', new_admin_talent_path, class: "nav-link" %></li>
           <li><%= link_to 'Add Instatgram ', new_admin_instagram_account_path, class: "nav-link" %></li>
           <li><%= link_to 'Your Instagram Feed List', admin_instagram_accounts_path, class: "nav-link" %></li>
           <li class="nav-item active dropdown">

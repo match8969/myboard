@@ -1,25 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Talents</h1>
+<%= link_to 'New Talent', new_admin_talent_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @talents.each do |talent| %>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-hove">
+      <thead>
       <tr>
-        <td><%= link_to 'Show', [:admin, talent] %></td>
-        <td><%= link_to 'Edit', edit_admin_talent_path(talent) %></td>
-        <td><%= link_to 'Destroy', [:admin, talent], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+      <% @talents.each do |talent| %>
+        <tr>
+          <td><%= talent.name %></td>
+          <td><%= link_to 'Show', [:admin, talent] %></td>
+          <td><%= link_to 'Edit', edit_admin_talent_path(talent) %></td>
+          <td><%= link_to 'Destroy', [:admin, talent], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
-
-<%= link_to 'New Talent', new_admin_talent_path %>

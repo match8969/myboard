@@ -10,6 +10,29 @@ class Admin::TalentsController < ApplicationController
   # GET /talents/1
   # GET /talents/1.json
   def show
+
+    @instagram_account = InstagramAccount.find_by(talent_id: @talent.id)
+
+    # newからのリダイレクトでは更新は行わない
+    return @instagram_account if @instagram_account.is_updated_within?(10)
+
+    # アバターのアップデート
+    new_avatar_path = InstagramAccountImageService.new(@instagram_account.account_name).fetch_avatar_path
+    @instagram_account.update(image: new_avatar_path) unless @instagram_account.has_same_image_path?(new_avatar_path)
+
+    # 投稿画像のアップデート
+    new_image_paths = InstagramContentImageService.new(@instagram_account.account_name).fetch_image_paths
+    current_image_paths = @instagram_account.instagram_contents.pluck(:image)
+    diff_image_paths = new_image_paths - current_image_paths # 集合の差集合を取得すべき新しい画像として認知
+    # 既存の画像のみの場合
+    return @instagram_account if diff_image_paths.blank?
+    # 新しい画像がある場合
+    diff_image_paths.each do |image_path|
+      instagram_content = @instagram_account.instagram_contents.new(image: image_path)
+      instagram_content.save
+    end
+    @talent
+
   end
 
   # GET /talents/new
@@ -24,12 +47,25 @@ class Admin::TalentsController < ApplicationController
   # POST /talents
   # POST /talents.json
   def create
-    @talent = Talent.new(talent_params)
+
+    @talent = current_user.talents.new(name: talent_params[:name])
+
+    # build_has_one でないとだめ!
+    @instagram_account = @talent.build_instagram_account(account_name: talent_params[:account_name])
+
+    # アバターの取得
+    @instagram_account.image = InstagramAccountImageService.new(@instagram_account.account_name).fetch_avatar_path
+
+    # コンテンツの作成
+    image_paths = InstagramContentImageService.new(@instagram_account.account_name).fetch_image_paths
+    image_paths.each do |image_path|
+      instagram_content = @instagram_account.instagram_contents.new(image: image_path)
+    end
 
     respond_to do |format|
       if @talent.save
-        format.html { redirect_to @talent, notice: 'Talent was successfully created.' }
-        format.json { render :show, status: :created, location: @talent }
+        format.html { redirect_to [:admin, @talent], notice: 'Talent was successfully created.' }
+        format.json { render :show, status: :created, location: [:admin, @talent] }
       else
         format.html { render :new }
         format.json { render json: @talent.errors, status: :unprocessable_entity }
@@ -42,7 +78,7 @@ class Admin::TalentsController < ApplicationController
   def update
     respond_to do |format|
       if @talent.update(talent_params)
-        format.html { redirect_to @talent, notice: 'Talent was successfully updated.' }
+        format.html { redirect_to [:admin, @talent], notice: 'Talent was successfully updated.' }
         format.json { render :show, status: :ok, location: @talent }
       else
         format.html { render :edit }
@@ -69,6 +105,7 @@ class Admin::TalentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def talent_params
-      params.fetch(:talent, {})
+      params.require(:talent).permit(:name, :account_name)
     end
+
 end

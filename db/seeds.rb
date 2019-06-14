@@ -20,13 +20,19 @@ User.create!(email: "administer@example.com",
                 )
 end
 
-InstagramAccount.create!(account_name: "ytp49", user_id: 1)
-InstagramAccount.create!(account_name: "aragakiyui_fanspage", user_id: 1)
-InstagramAccount.create!(account_name: "mariekondo", user_id: 1)
-InstagramAccount.create!(account_name: "watanabenaomi703", user_id: 1)
-InstagramAccount.create!(account_name: "ariyoshihiroiki", user_id: 1)
-InstagramAccount.create!(account_name: "rolaofficial", user_id: 1)
-InstagramAccount.create!(account_name: "match8969", user_id: 1)
+
+Talent.create!(name: "町田", user_id: 1)
+Talent.create!(name: "近藤麻理恵", user_id: 1)
+Talent.create!(name: "渡辺直美", user_id: 1)
+Talent.create!(name: "有吉弘行", user_id: 1)
+Talent.create!(name: "ローラ", user_id: 1)
+
+InstagramAccount.create!(account_name: "match8969", talent_id: 1)
+InstagramAccount.create!(account_name: "mariekondo", talent_id: 2)
+InstagramAccount.create!(account_name: "watanabenaomi703", talent_id: 3)
+InstagramAccount.create!(account_name: "ariyoshihiroiki", talent_id: 4)
+InstagramAccount.create!(account_name: "rolaofficial", talent_id: 5)
+
 
 
 
