@@ -22,6 +22,7 @@ production:
   <<: *default
   database: myboard_production
   username: myboard_prod
+  password:
 
 # SQLite version 3.x
 #   gem install sqlite3
