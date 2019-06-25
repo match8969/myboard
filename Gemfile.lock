@@ -909,6 +909,7 @@ GEM
     msgpack (1.2.10)
     multi_json (1.13.1)
     multipart-post (2.1.1)
+    mysql2 (0.5.2)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -919,7 +920,6 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
-    pg (0.19.0)
     popper_js (1.14.5)
     public_suffix (3.1.0)
     puma (3.12.1)
@@ -1040,7 +1040,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.1)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -1093,8 +1092,8 @@ DEPENDENCIES
   letter_opener_web
   listen (>= 3.0.5, < 3.2)
   mini_magick
+  mysql2
   omniauth
-  pg (~> 0.19.0)
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails_12factor (= 0.0.2)
@@ -1104,7 +1103,6 @@ DEPENDENCIES
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
   timecop
   turbolinks (~> 5)
   tzinfo-data
