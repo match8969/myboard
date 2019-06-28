@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_032709) do
+ActiveRecord::Schema.define(version: 2019_06_28_040056) do
 
   create_table "instagram_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "account_name"
+    t.string "account_name", limit: 255
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.text "image"
     t.bigint "talent_id"
     t.index ["talent_id"], name: "index_instagram_accounts_on_talent_id"
   end
@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 2019_06_14_032709) do
     t.bigint "instagram_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.text "image"
     t.index ["instagram_account_id"], name: "index_instagram_contents_on_instagram_account_id"
   end
 
   create_table "talents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 255
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -38,26 +38,26 @@ ActiveRecord::Schema.define(version: 2019_06_14_032709) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string "email", limit: 255, default: "", null: false
+    t.string "encrypted_password", limit: 255, default: "", null: false
+    t.string "reset_password_token", limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "confirmation_token"
+    t.string "current_sign_in_ip", limit: 255
+    t.string "last_sign_in_ip", limit: 255
+    t.string "confirmation_token", limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
+    t.string "unconfirmed_email", limit: 255
     t.integer "failed_attempts", default: 0, null: false
-    t.string "unlock_token"
+    t.string "unlock_token", limit: 255
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image"
+    t.string "image", limit: 255
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
