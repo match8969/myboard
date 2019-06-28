@@ -11,14 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <%= form.label :登録名 %>
+    <div class="input-group">
+      <%= form.text_field :name, placeholder: "ex)有吉弘行" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :account_name %>
-    <%= form.text_field :account_name %>
+  <div class="field form-group">
+    <%= form.label :インスタグラムのアカウント名 %>
+    <div class="input-group">
+      <%= form.text_field :account_name, placeholder: "ex)ariyoshihiroiki" %>
+    </div>
   </div>
 
   <div class="actions">
