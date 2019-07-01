@@ -22,8 +22,10 @@ test:
 production:
   <<: *default
   database: myboard_production
-  username: root
-  password:
+  username: <%= ENV['RAILS_MYSQL_DATABASE_USERNAME'] %>
+  password: <%= ENV['RAILS_MYSQL_DATABASE_PASSWORD'] %>
+  host    : <%= ENV['RAILS_MYSQL_DATABASE_HOST'] %>
+  port    : <%= ENV['RAILS_MYSQL_DATABASE_PORT'] %>
 
 # SQLite version 3.x
 #   gem install sqlite3
