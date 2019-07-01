@@ -6,7 +6,8 @@ default: &default
   pool: 5
   username: <%= ENV['RAILS_MYSQL_DATABASE_USERNAME'] || 'root' %>
   password: <%= ENV['RAILS_MYSQL_DATABASE_PASSWORD'] || 'root' %>
-  host: <%= ENV['RAILS_MYSQL_DATABASE__HOST'] || 'localhost' %>
+  host: <%= ENV['RAILS_MYSQL_DATABASE_HOST'] || 'localhost' %>
+  port: <%= ENV['RAILS_MYSQL_DATABASE_PORT'] || '3306' %>
 
 development:
   <<: *default
