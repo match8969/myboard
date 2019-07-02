@@ -17,6 +17,7 @@
 
         <ul class="navbar-nav">
           <%= image_tag current_user.image.thumb.url if current_user.image? %>
+
           <li class="nav-item"><%= link_to "<#{current_user.email}>", "#", class: "nav-link" %></li>
           <li class="nav-item"><%= link_to 'Talents ', admin_talents_path, class: "nav-link" %></li>
 
