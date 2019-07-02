@@ -128,3 +128,6 @@ gem 'feedjira'
 
 # cron
 gem 'whenever', require: false
+
+# error 通知
+gem 'rollbar'
