@@ -1,5 +1,5 @@
-if Rails.env.production?
-  CarrierWave.configure do |config|
+CarrierWave.configure do |config|
+  if Rails.env.production?
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
         # Amazon S3用の設定
@@ -10,5 +10,8 @@ if Rails.env.production?
     }
     config.fog_directory     =  ENV['S3_BUCKET']
     config.cache_storage = :fog # Additional.
+  else
+    config.storage :file
   end
+  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 end

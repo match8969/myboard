@@ -1,30 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Talents</h1>
-<%= link_to 'New Talent', new_admin_talent_path %>
-
-<div class="container">
-  <div class="table-responsive">
-    <table class="table table-hove">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <% @talents.each do |talent| %>
-        <tr>
-          <td><%= talent.name %></td>
-          <td><%= link_to 'Show', [:admin, talent] %></td>
-          <td><%= link_to 'Edit', edit_admin_talent_path(talent) %></td>
-          <td><%= link_to 'Destroy', [:admin, talent], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+<div class="row">
+  <h1 class="col-md-11">Index</h1>
+  <div class="col-md-1">
+    <%= link_to image_tag("admin_new", width: '30', class: "icon"), new_admin_talent_path %>
   </div>
 </div>
 
-<br>
+<% @talents.each do |talent| %>
+  <div class="row">
+    <div class="col-md-2">
+      <% if talent.instagram_account.image? %>
+        <%= link_to image_tag(talent.instagram_account.image, :size => "100x100"), [:admin, talent] %>
+      <% end %>
+    </div>
+    <% if talent.instagram_account.instagram_contents.count > 0 %>
+      <% talent.instagram_account.instagram_contents.order(id: "DESC").limit(10).each do |instagram_content| %>
+        <% if instagram_content.present? %>
+          <div class="col-md-1">
+            <%= image_tag "#{instagram_content.image}", :size => "100x100" %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
