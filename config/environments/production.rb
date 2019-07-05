@@ -67,18 +67,23 @@ Rails.application.configure do
 
 
   # Action Mailer
-  config.action_mailer.default_url_options = { :host => 'https://serene-inlet-94224.herokuapp.com/'}
-  config.action_mailer.raise_delivery_errors = false
+  # Heroku
+  # config.action_mailer.default_url_options = { :host => 'https://serene-inlet-94224.herokuapp.com/'}
+
+  # AWS EC2
+  config.action_mailer.default_url_options = { :host => 'http://match8969.site'}
+
+  # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       # TODO:
-      # :user_name => "SendGridのアカウント名",
-      # 　　　　　　　　:password => "SendGridのパスワード",
-      # :domain => "heroku.com",
-      # :address => "smtp.sendgrid.net",
-      # :port => 587,
-      # :authentication => :plain,
-      # :enable_starttls_auto => true
+      :user_name => ENV['SES'],
+      :password => "SendGridのパスワード",
+      :domain => "heroku.com",
+      :address => "smtp.sendgrid.net",
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
   }
 
 
