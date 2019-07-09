@@ -12,15 +12,17 @@ jobs:
             # Bundler   
             BUNDLER_VERSION: 2.0.1
 
-            # Rails environment
-            RAILS_ENV: test
-      - image: circleci/mysql:5.7
-        environment:
             # DB
             RAILS_MYSQL_DATABASE_USERNAME: root
             RAILS_MYSQL_DATABASE_PASSWORD: root
             RAILS_MYSQL_DATABASE_HOST: 127.0.0.1
             RAILS_MYSQL_DATABASE_SOCKET: /tmp/mysql.sock
+
+            # Rails environment
+            RAILS_ENV: test
+      - image: circleci/mysql:5.7
+        environment:
+            
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
