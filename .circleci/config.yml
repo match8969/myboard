@@ -64,7 +64,7 @@ jobs:
           mkdir -p config && echo 'test:
             database: circle_ruby_test
             username: root
-            password: password
+            password: root # password
             pool: 5
             collation: utf8mb4_general_ci
             charset: utf8mb4
