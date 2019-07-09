@@ -20,6 +20,7 @@ jobs:
             RAILS_MYSQL_DATABASE_USERNAME: root
             RAILS_MYSQL_DATABASE_PASSWORD: root
             RAILS_MYSQL_DATABASE_HOST: 127.0.0.1
+            RAILS_MYSQL_DATABASE_SOCKET: /tmp/mysql.sock
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
