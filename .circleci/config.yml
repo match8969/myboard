@@ -13,10 +13,11 @@ jobs:
             BUNDLER_VERSION: 2.0.1
 
             # DB
-            RAILS_MYSQL_DATABASE_USERNAME: root
-            RAILS_MYSQL_DATABASE_PASSWORD: root
-            RAILS_MYSQL_DATABASE_HOST: 127.0.0.1
-            RAILS_MYSQL_DATABASE_SOCKET: /tmp/mysql.sock
+            # RAILS_MYSQL_DATABASE_USERNAME: root
+            # RAILS_MYSQL_DATABASE_PASSWORD: root
+            # RAILS_MYSQL_DATABASE_HOST: 127.0.0.1
+            # RAILS_MYSQL_DATABASE_SOCKET: /tmp/mysql.sock
+            MYSQL_ROOT_PASSWORD: root
 
             # Rails environment
             RAILS_ENV: test
@@ -66,7 +67,7 @@ jobs:
           mkdir -p config && echo 'test:
             database: circle_ruby_test
             username: root
-            password: root # password
+            password: root
             pool: 5
             collation: utf8mb4_general_ci
             charset: utf8mb4
