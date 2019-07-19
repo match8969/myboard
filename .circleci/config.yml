@@ -5,7 +5,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/myboard
     parallelism: 1
     shell: /bin/bash --login
     docker:
