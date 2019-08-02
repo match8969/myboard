@@ -1,7 +1,26 @@
-<br />
-<div class="row">
-  <div class="section">
-    <%= link_to image_tag("instagram_icon", width: '150', class: "icon"), admin_talents_path %>
-    <div class="section-title"><h2>Instagram</h2></div>
+<div class="section works">
+  <h2 class="heading">Works</h2>
+  <div class="works-wrapper row">
+      <div class="work-box col-md-4">
+        <div class="text-center">
+          <%= link_to admin_talents_path, class: "work-link text-decoration-none" do %>
+            <i class="work-icon fab fa-instagram fa-8x"></i>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="work-box col-md-4">
+        <div class="text-center">
+          <i class="work-icon fab fa-twitter fa-8x "></i>
+          <p class="work-yet">coming soon</p>
+        </div>
+      </div>
+
+      <div class="work-box col-md-4">
+        <div class="text-center">
+          <i class="work-icon fab fa-amazon fa-8x "></i>
+          <p class="work-yet">coming soon</p>
+        </div>
+      </div>
   </div>
 </div>

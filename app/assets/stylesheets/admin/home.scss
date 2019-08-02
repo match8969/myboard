@@ -1,3 +1,93 @@
 // Place all the styles related to the admin/home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// Works
+
+.works {
+    //background-image: url('miyajima_image.jpeg');
+    //background-color: #fff;
+    background-size: cover; 
+    width: 100%;
+}
+
+.works-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 50px auto 0;
+}
+  
+.work-box {
+  display: block;
+  position: relative;
+  width: 100%;
+  
+  &:hover {
+    .work-yet {
+        opacity: 1;
+    }
+  }
+  
+}
+  
+.work-icon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    margin: 50px auto 0;
+    //color: #e940a8;
+    color:  #f1b400;
+    font-size: 6rem;
+
+    &:hover {
+        color: rgb(96, 112, 6); 
+    }
+}
+
+.work-yet {
+    opacity: 0;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+  
+.work-link {
+    margin: 20px;
+    font-size: 1.5rem;
+    //color:  #e940a8;
+    color:  #f1b400;
+    text-decoration: none; // 効果なし。　下線部をnoneにしたい。
+
+    &:hover {
+        color: rgb(96, 112, 6);
+        text-decoration: none;
+    }
+}
+
+// Talent
+.talent-new {
+    position: relative;
+    font-size: 6rem;
+    width: 100%;
+    margin: 0 auto 0;
+}
+
+.talent-new-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 36px auto 36px;
+    
+    vertical-align: middle;
+    color:  #f1b400;
+    &:hover {
+        color: rgb(96, 112, 6);
+    }
+}
+
+
