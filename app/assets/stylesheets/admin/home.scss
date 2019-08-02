@@ -1,3 +1,61 @@
 // Place all the styles related to the admin/home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// Works
+
+.works {
+    //background-image: url('miyajima_image.jpeg');
+    //background-color: #fff;
+    background-size: cover; 
+    width: 100%;
+}
+
+.works-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 50px auto 0;
+}
+  
+.work-box {
+  display: block;
+  position: relative;
+  width: 100%;
+  /*color:  #f1b400;
+  &:hover {
+    color: rgb(96, 112, 6);
+    }
+    */
+}
+  
+.work-icon {
+    width: 100%;
+    height: 100%;
+    margin: 10px auto 0;
+    display: inline-block;
+    margin: 50px auto 0;
+    //color: #e940a8;
+    color:  #f1b400;
+    font-size: 6rem;
+
+    &:hover {
+        color: rgb(96, 112, 6);
+    }
+}
+  
+.work-link {
+    margin: 20px;
+    font-size: 1.5rem;
+    //color:  #e940a8;
+    color:  #f1b400;
+    text-decoration: none; // 効果なし。　下線部をnoneにしたい。
+
+    &:hover {
+        color: rgb(96, 112, 6);
+        text-decoration: none;
+    }
+}
+
