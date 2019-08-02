@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color:#fff;
+  background-color: none;
   //background-image: url('sky_00030.jpg');
   background-image: url('bg.png');
   background-size: cover;
@@ -76,9 +76,13 @@ body {
   }
 }
 
+.navbar {
+  background: none;
+}
 
 .navbar-brand {
-  color: #8b8b7f;
+  //color: #8b8b7f;
+  color: inherit;
   size: A3;
 }
 
@@ -87,15 +91,24 @@ body {
   margin: 5px 30px;
 }
 
+.dropdown-menu {
+  background-color: inherit;
+  border-color: none;
+}
 
 .dropdown-item {
+  text-align: center;
   color: #8b8b7f;
-  border-left: solid 6px #b70b72;/*左側の線*/
-  background: #37383a;/*背景色*/
-  margin-bottom: 3px;/*下のバーとの余白*/
+  background-color: inherit;// #37383a;/*背景色*/
+  margin-bottom: 1px;/*下のバーとの余白*/
   line-height: 1.5;
   padding: 0.5em;
   list-style-type: none!important;/*ポチ消す*/
+
+  &:hover {
+    color: #fff;
+    background-color: inherit;
+  }
 }
 
 .link {
@@ -107,7 +120,7 @@ body {
     margin: auto;
   }
   &__new:hover {
-    color: white;
+    //color: white;
     text-decoration: none;
   }
 }
