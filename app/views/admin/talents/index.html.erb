@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <h1 class="col-md-11">Index</h1>
-  <div class="col-md-1">
-    <%= link_to image_tag("admin_new", width: '30', class: "icon"), new_admin_talent_path %>
+  <h1 class="heading col-md-11">Index</h1>
+  <div class="talent-new col-md-1">
+    <%= link_to new_admin_talent_path, class: " text-decoration-none" do %>
+      <i class="talent-new-icon fas fa-plus-circle"></i>
+    <% end %>
   </div>
 </div>
 

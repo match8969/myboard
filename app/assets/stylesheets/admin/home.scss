@@ -44,9 +44,7 @@
     font-size: 6rem;
 
     &:hover {
-        color: rgb(96, 112, 6);
-
-        
+        color: rgb(96, 112, 6); 
     }
 }
 
@@ -70,4 +68,26 @@
         text-decoration: none;
     }
 }
+
+// Talent
+.talent-new {
+    position: relative;
+    font-size: 6rem;
+    width: 100%;
+    margin: 0 auto 0;
+}
+
+.talent-new-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 36px auto 36px;
+    
+    vertical-align: middle;
+    color:  #f1b400;
+    &:hover {
+        color: rgb(96, 112, 6);
+    }
+}
+
 
