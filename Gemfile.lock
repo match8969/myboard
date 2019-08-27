@@ -44,6 +44,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
+    amazon-ecs (2.6.0)
+      nokogiri (~> 1.10)
     annotate (2.7.5)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 13.0)
@@ -1079,6 +1081,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amazon-ecs
   annotate
   aws-sdk
   bootsnap (>= 1.1.0)
