@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_28_040056) do
+ActiveRecord::Schema.define(version: 2019_08_28_020142) do
 
   create_table "instagram_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "account_name", limit: 255
@@ -27,6 +27,11 @@ ActiveRecord::Schema.define(version: 2019_06_28_040056) do
     t.datetime "updated_at", null: false
     t.text "image"
     t.index ["instagram_account_id"], name: "index_instagram_contents_on_instagram_account_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "talents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
